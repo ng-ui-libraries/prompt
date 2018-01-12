@@ -1,7 +1,7 @@
 import {Component, NgModule}              from '@angular/core';
 import {BrowserModule}                    from '@angular/platform-browser';
 import {CommonModule}                     from '@angular/common';
-import {ModalModule}                      from 'ngx-bootstrap/modal';
+import {ModalModule}                      from 'ngx-bootstrap';
 import {PromptBodyComponent}              from './Component/PromptBodyComponent';
 import {PromptCancelComponent}            from './Component/PromptCancelComponent';
 import {PromptComponent}                  from './Component/PromptComponent';
