@@ -1,7 +1,6 @@
 import {Component, NgModule} from '@angular/core';
 import {BrowserModule}       from '@angular/platform-browser';
 import {CommonModule}        from '@angular/common';
-import {NgFormModule}        from '@ng-app-framework/form';
 import {PromptModule}        from '../lib/PromptModule';
 
 @Component({
@@ -109,7 +108,6 @@ export class PromptDemoComponent {
     imports     : [
         BrowserModule,
         CommonModule,
-        NgFormModule,
         PromptModule
     ],
     exports     : [PromptDemoComponent],
