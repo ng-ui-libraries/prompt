@@ -38,6 +38,6 @@ import {PromptModalComponent}             from './Component/PromptModalComponent
     bootstrap   : []
 
 })
-export class PromptModule {
+export class NgPromptModule {
 
 }

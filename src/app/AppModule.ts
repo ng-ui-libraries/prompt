@@ -1,7 +1,7 @@
 import {Component, NgModule} from '@angular/core';
 import {BrowserModule}       from '@angular/platform-browser';
 import {CommonModule}        from '@angular/common';
-import {PromptModule}        from '../lib/PromptModule';
+import {NgPromptModule}      from '../lib/NgPromptModule';
 
 @Component({
     selector: 'app',
@@ -108,7 +108,7 @@ export class PromptDemoComponent {
     imports     : [
         BrowserModule,
         CommonModule,
-        PromptModule
+        NgPromptModule
     ],
     exports     : [PromptDemoComponent],
     providers   : [],

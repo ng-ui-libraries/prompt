@@ -5,4 +5,4 @@ export {PromptHeaderComponent}  from './Component/PromptHeaderComponent';
 export {PromptConfirmComponent} from './Component/PromptConfirmComponent';
 export {PromptCancelComponent}  from './Component/PromptCancelComponent';
 export {PromptModalComponent}   from './Component/PromptModalComponent';
-export {PromptModule} from "./PromptModule";
+export {NgPromptModule}         from "./NgPromptModule";
