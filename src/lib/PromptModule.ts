@@ -1,7 +1,6 @@
 import {Component, NgModule}              from '@angular/core';
 import {BrowserModule}                    from '@angular/platform-browser';
 import {CommonModule}                     from '@angular/common';
-import {NgFormModule}                     from '@ng-app-framework/form';
 import {ModalModule}                      from 'ngx-bootstrap/modal';
 import {PromptBodyComponent}              from './Component/PromptBodyComponent';
 import {PromptCancelComponent}            from './Component/PromptCancelComponent';
@@ -25,8 +24,7 @@ import {PromptModalComponent}             from './Component/PromptModalComponent
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        ModalModule.forRoot(),
-        NgFormModule
+        ModalModule.forRoot()
     ],
     exports     : [
         PromptComponent,
