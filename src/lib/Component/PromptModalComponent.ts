@@ -15,10 +15,10 @@ import {ModalDirective}                             from 'ngx-bootstrap';
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <span (click)="confirm.emit();promptModal.hide();">
+                            <span (click)="promptModal.hide();">
                                 <ng-content select="prompt-confirm"></ng-content>
                             </span>
-                            <span (click)="cancel.emit();promptModal.hide();">
+                            <span (click)="promptModal.hide();">
                                 <ng-content select="prompt-cancel"></ng-content>
                             </span>
                         </div>
@@ -31,9 +31,6 @@ import {ModalDirective}                             from 'ngx-bootstrap';
 export class PromptModalComponent {
 
     @ViewChild('promptModal') promptModal: ModalDirective;
-
-    @Output() confirm = new EventEmitter<any>();
-    @Output() cancel  = new EventEmitter<any>();
 
     ngOnInit() {
         this.promptModal.config = {

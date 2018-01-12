@@ -8,66 +8,92 @@ import {PromptModule}        from '../lib/PromptModule';
     selector: 'app',
     template: `
         <div class="container">
-
-            <h1>Prompt Components</h1>
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#basic" role="tab">
-                        Basic Prompt
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#modal" role="tab">
-                        Modal Prompt
-                    </a>
-                </li>
-            </ul>
-            <div class="tab-content card">
-                <div class="tab-pane active" id="basic" role="tabpanel">
-                    <div class="col-12">
-                        <prompt (yes)="addYes()" (no)="addNo()">
-                            <prompt-header>
-                                <h4>Basic Prompt</h4>
-                            </prompt-header>
-                            <prompt-body>
-                                This is the body of the prompt.
-                            </prompt-body>
-                            <prompt-confirm (click)="addYes()">Yes</prompt-confirm>
-                            <prompt-cancel (click)="addNo()">No</prompt-cancel>
-                        </prompt>
-
-                        <pre class="card card-body bg-light"></pre>
-                        <pre class="card card-body bg-light">{{ model | json }}</pre>
+            <h3>Prompts</h3>
+            <div class="row">
+                <div class="col-3">
+                    <div class="nav flex-column nav-pills" aria-orientation="vertical" role="tablist">
+                        <a class="nav-link active" data-toggle="pill" href="#basic" role="tab">
+                            Basic Prompt
+                        </a>
+                        <a class="nav-link" data-toggle="pill" href="#modal" role="tab">
+                            Modal Prompt
+                        </a>
                     </div>
                 </div>
-                <div class="tab-pane" id="modal" role="tabpanel">
-                    <div class="col-12">
-                        <prompt-modal (confirm)="addYes()" (cancel)="addNo()" #modal>
-                            <prompt-header>
-                                <h4>Modal Prompt</h4>
-                            </prompt-header>
-                            <prompt-body>
-                                This is the body of the prompt.
-                            </prompt-body>
-                            <prompt-confirm>Yes</prompt-confirm>
-                            <prompt-cancel>No</prompt-cancel>
-                        </prompt-modal>
-                        <div class="form-group">
-                            <button class="btn btn-primary" (click)="modal.show()">Open Modal</button>
+                <div class="col-9">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="basic" role="tabpanel">
+                            <div class="col-12">
+                                <prompt (yes)="addYes()" (no)="addNo()">
+                                    <prompt-header>
+                                        <h4>Basic Prompt</h4>
+                                    </prompt-header>
+                                    <prompt-body>
+                                        This is the body of the prompt.
+                                    </prompt-body>
+                                    <prompt-confirm (click)="addYes()">Yes</prompt-confirm>
+                                    <prompt-cancel (click)="addNo()">No</prompt-cancel>
+                                </prompt>
+
+                                <pre class="card card-body bg-light">{{basicMarkup}}</pre>
+                                <pre class="card card-body bg-light">{{ model | json }}</pre>
+                            </div>
                         </div>
-                        <pre class="card card-body bg-light"></pre>
-                        <pre class="card card-body bg-light">{{ model | json }}</pre>
+                        <div class="tab-pane" id="modal" role="tabpanel">
+                            <div class="col-12">
+                                <prompt-modal #modal>
+                                    <prompt-header>
+                                        <h4>Modal Prompt</h4>
+                                    </prompt-header>
+                                    <prompt-body>
+                                        This is the body of the prompt.
+                                    </prompt-body>
+                                    <prompt-confirm (click)="addYes()">Yes</prompt-confirm>
+                                    <prompt-cancel (click)="addNo()">No</prompt-cancel>
+                                </prompt-modal>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" (click)="modal.show()">Open Modal</button>
+                                </div>
+                                <pre class="card card-body bg-light">{{modalMarkup}}</pre>
+                                <pre class="card card-body bg-light">{{ model | json }}</pre>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     `
 })
-export class AppComponent {
+export class PromptDemoComponent {
     model = {
         yesClicks: 0,
         noClicks : 0
     };
+
+    basicMarkup = `
+<prompt (yes)="addYes()" (no)="addNo()">
+    <prompt-header>
+        <h4>Basic Prompt</h4>
+    </prompt-header>
+    <prompt-body>
+        This is the body of the prompt.
+    </prompt-body>
+    <prompt-confirm (click)="addYes()">Yes</prompt-confirm>
+    <prompt-cancel (click)="addNo()">No</prompt-cancel>
+</prompt>`;
+
+    modalMarkup = `
+<prompt-modal #modal>
+    <prompt-header>
+        <h4>Modal Prompt</h4>
+    </prompt-header>
+    <prompt-body>
+        This is the body of the prompt.
+    </prompt-body>
+    <prompt-confirm (click)="addYes()">Yes</prompt-confirm>
+    <prompt-cancel (click)="addNo()">No</prompt-cancel>
+</prompt-modal>
+`;
 
     addYes() {
         this.model.yesClicks++;
@@ -79,16 +105,16 @@ export class AppComponent {
 }
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [PromptDemoComponent],
     imports     : [
         BrowserModule,
         CommonModule,
         NgFormModule,
         PromptModule
     ],
-    exports     : [AppComponent],
+    exports     : [PromptDemoComponent],
     providers   : [],
-    bootstrap   : [AppComponent]
+    bootstrap   : [PromptDemoComponent]
 
 })
 export class AppModule {
