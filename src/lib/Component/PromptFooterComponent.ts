@@ -4,9 +4,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
     selector: 'prompt-footer',
     template: `
         <div [class.modal-footer]="modal">
-            <div class="form-group">
-                <ng-content></ng-content>
-            </div>
+            <ng-content></ng-content>
         </div>
     `
 })
