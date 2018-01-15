@@ -23,7 +23,7 @@ import {NgPromptModule}      from '../lib/NgPromptModule';
                     <div class="tab-content">
                         <div class="tab-pane active" id="basic" role="tabpanel">
                             <div class="col-12">
-                                <prompt (yes)="addYes()" (no)="addNo()">
+                                <prompt>
                                     <prompt-header>
                                         <h4>Basic Prompt</h4>
                                     </prompt-header>
@@ -70,7 +70,7 @@ export class PromptDemoComponent {
     };
 
     basicMarkup = `
-<prompt (yes)="addYes()" (no)="addNo()">
+<prompt>
     <prompt-header>
         <h4>Basic Prompt</h4>
     </prompt-header>

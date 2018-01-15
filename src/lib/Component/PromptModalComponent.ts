@@ -1,11 +1,12 @@
-import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
-import {ModalDirective}                             from 'ngx-bootstrap';
+import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
+import {ModalDirective}                                    from 'ngx-bootstrap';
 
 @Component({
     selector: 'prompt-modal',
     template: `
-        <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" bsModal #promptModal="bs-modal">
-            <div class="modal-dialog modal-sm">
+        <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" bsModal #promptModal="bs-modal"
+             [config]="{backdrop: 'static'}">
+            <div class="modal-dialog modal-{{size}}">
                 <div class="modal-content">
                     <div class="modal-header">
                         <ng-content select="prompt-header"></ng-content>
@@ -31,12 +32,8 @@ import {ModalDirective}                             from 'ngx-bootstrap';
 export class PromptModalComponent {
 
     @ViewChild('promptModal') promptModal: ModalDirective;
+    @Input() size: string = 'sm';
 
-    ngOnInit() {
-        this.promptModal.config = {
-            backdrop: 'static'
-        };
-    }
 
     show() {
         this.promptModal.show();
