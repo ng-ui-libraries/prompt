@@ -4,8 +4,8 @@ import {ModalDirective}                                    from 'ngx-bootstrap';
 @Component({
     selector: 'prompt-modal',
     template: `
-        <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" bsModal #promptModal="bs-modal"
-             [config]="{backdrop: 'static'}">
+        <div *ngIf="isModalShown" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" bsModal #promptModal="bs-modal"
+             [config]="{backdrop: 'static', show: true}">
             <div class="modal-dialog modal-{{size}}">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -16,10 +16,10 @@ import {ModalDirective}                                    from 'ngx-bootstrap';
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <span (click)="promptModal.hide();">
+                            <span (click)="hide();">
                                 <ng-content select="prompt-confirm"></ng-content>
                             </span>
-                            <span (click)="promptModal.hide();">
+                            <span (click)="hide();">
                                 <ng-content select="prompt-cancel"></ng-content>
                             </span>
                         </div>
@@ -34,13 +34,15 @@ export class PromptModalComponent {
     @ViewChild('promptModal') promptModal: ModalDirective;
     @Input() size: string = 'sm';
 
+    @Input() isModalShown: boolean = false;
+
 
     show() {
-        this.promptModal.show();
+        this.isModalShown = true;
     }
 
     hide() {
-        this.promptModal.hide();
+        this.isModalShown = false;
     }
 
 }
