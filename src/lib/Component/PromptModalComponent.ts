@@ -14,12 +14,12 @@ import {ModalDirective}                                    from 'ngx-bootstrap';
                     <div class="modal-body">
                         <ng-content select="prompt-body"></ng-content>
                     </div>
-                    <div [class.modal-body]="confirm.nativeElement.children.length > 0 || cancel.nativeElement.children.length > 0">
-                        <div [class.form-group]="confirm.nativeElement.children.length > 0 || cancel.nativeElement.children.length > 0">
-                            <span (click)="hide();" #confirm>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <span (click)="hide();">
                                 <ng-content select="prompt-confirm"></ng-content>
                             </span>
-                            <span (click)="hide();" #cancel>
+                            <span (click)="hide();">
                                 <ng-content select="prompt-cancel"></ng-content>
                             </span>
                         </div>
