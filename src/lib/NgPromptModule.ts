@@ -7,6 +7,7 @@ import {PromptCancelComponent}            from './Component/PromptCancelComponen
 import {PromptComponent}                  from './Component/PromptComponent';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {PromptConfirmComponent}           from './Component/PromptConfirmComponent';
+import {PromptFooterComponent}            from './Component/PromptFooterComponent';
 import {PromptHeaderComponent}            from './Component/PromptHeaderComponent';
 import {PromptModalComponent}             from './Component/PromptModalComponent';
 
@@ -17,7 +18,8 @@ import {PromptModalComponent}             from './Component/PromptModalComponent
         PromptBodyComponent,
         PromptConfirmComponent,
         PromptCancelComponent,
-        PromptModalComponent
+        PromptModalComponent,
+        PromptFooterComponent
     ],
     imports     : [
         BrowserModule,
@@ -32,7 +34,8 @@ import {PromptModalComponent}             from './Component/PromptModalComponent
         PromptBodyComponent,
         PromptConfirmComponent,
         PromptCancelComponent,
-        PromptModalComponent
+        PromptModalComponent,
+        PromptFooterComponent
     ],
     providers   : [],
     bootstrap   : []

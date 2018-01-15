@@ -1,16 +1,16 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
-    selector: 'prompt-header',
+    selector: 'prompt-footer',
     template: `
-        <div [class.modal-header]="modal">
+        <div [class.modal-footer]="modal">
             <div class="form-group">
                 <ng-content></ng-content>
             </div>
         </div>
     `
 })
-export class PromptHeaderComponent {
+export class PromptFooterComponent {
 
     @Input() modal: boolean = false;
 }

@@ -8,22 +8,9 @@ import {ModalDirective}                                    from 'ngx-bootstrap';
              [config]="{backdrop: 'static', show: true}">
             <div class="modal-dialog modal-{{size}}">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <ng-content select="prompt-header"></ng-content>
-                    </div>
-                    <div class="modal-body">
-                        <ng-content select="prompt-body"></ng-content>
-                    </div>
-                    <div class="modal-body modal-footer">
-                        <div class="form-group">
-                            <span (click)="hide();">
-                                <ng-content select="prompt-confirm"></ng-content>
-                            </span>
-                            <span (click)="hide();">
-                                <ng-content select="prompt-cancel"></ng-content>
-                            </span>
-                        </div>
-                    </div>
+                    <ng-content select="prompt-header"></ng-content>
+                    <ng-content select="prompt-body"></ng-content>
+                    <ng-content select="prompt-footer"></ng-content>
                 </div>
             </div>
         </div>
