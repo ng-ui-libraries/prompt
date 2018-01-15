@@ -1,6 +1,6 @@
-import {Component, EventEmitter, EventEmitter, Input, Output, ViewChild} from '@angular/core';
-import {OnChange}                                                        from '@ng-app-framework/core';
-import {ModalDirective}                                                  from 'ngx-bootstrap';
+import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
+import {OnChange}                                          from '@ng-app-framework/core';
+import {ModalDirective}                                    from 'ngx-bootstrap';
 
 @Component({
     selector: 'prompt-modal',
@@ -23,7 +23,7 @@ export class PromptModalComponent {
     @Input() size: string = 'sm';
 
     @OnChange @Input() isModalShown: boolean = false;
-                       isModalShownChange    = new EventEmitter<boolean>();
+    @Output() isModalShownChange             = new EventEmitter<boolean>();
 
     show() {
         this.isModalShown = true;
