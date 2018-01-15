@@ -14,7 +14,7 @@ import {ModalDirective}                                    from 'ngx-bootstrap';
                     <div class="modal-body">
                         <ng-content select="prompt-body"></ng-content>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body modal-footer">
                         <div class="form-group">
                             <span (click)="hide();">
                                 <ng-content select="prompt-confirm"></ng-content>
