@@ -6,7 +6,7 @@ import {ModalDirective}                                    from 'ngx-bootstrap';
     selector: 'prompt-modal',
     template: `
         <div *ngIf="isModalShown" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" bsModal #promptModal="bs-modal"
-             [config]="getConfig()">
+             [config]="{backdrop: 'static', show: true}">
             <div class="modal-dialog modal-{{size}}">
                 <div class="modal-content">
                     <ng-content select="prompt-header"></ng-content>
@@ -25,24 +25,12 @@ export class PromptModalComponent {
     @OnChange @Input() isModalShown: boolean = false;
     @Output() isModalShownChange             = new EventEmitter<boolean>();
 
-    @Input() backdropIsStatic = true;
-
     show() {
         this.isModalShown = true;
     }
 
     hide() {
         this.isModalShown = false;
-    }
-
-    getConfig() {
-        let config = {
-            show: true
-        };
-        if (this.backdropIsStatic) {
-            config['backdrop'] = 'static';
-        }
-        return config;
     }
 
 }
