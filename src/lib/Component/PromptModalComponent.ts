@@ -13,7 +13,7 @@ import {ModalDirective}                                    from 'ngx-bootstrap';
                     <ng-content select="prompt-body"></ng-content>
                     <ng-content select="prompt-footer"></ng-content>
                 </div>
-            </div>xx
+            </div>
         </div>
     `
 })
