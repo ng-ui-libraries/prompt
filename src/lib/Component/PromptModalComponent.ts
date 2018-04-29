@@ -5,7 +5,7 @@ import {ModalDirective}                                    from 'ngx-bootstrap';
 @Component({
     selector: 'prompt-modal',
     template: `
-        <div *ngIf="isModalShown" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" bsModal #promptModal="bs-modal"
+        <div *ngIf="isModalShown" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" bsModal #promptModal="bs-modal" [keyboard]="keyboard"
              [config]="getConfig()">
             <div class="modal-dialog modal-{{size}}">
                 <div class="modal-content">
@@ -13,7 +13,7 @@ import {ModalDirective}                                    from 'ngx-bootstrap';
                     <ng-content select="prompt-body"></ng-content>
                     <ng-content select="prompt-footer"></ng-content>
                 </div>
-            </div>
+            </div>xx
         </div>
     `
 })
@@ -26,6 +26,8 @@ export class PromptModalComponent {
     @Output() isModalShownChange             = new EventEmitter<boolean>();
 
     @Input() isBackdropStatic = true;
+
+    @Input() keyboard = true;
 
     show() {
         this.isModalShown = true;
